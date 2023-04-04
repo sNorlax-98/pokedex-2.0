@@ -1,0 +1,19 @@
+.poke-logo{
+    width: 200px;
+    border: 1px solid #000;
+    border-radius: 20%;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #000;
+}
+.links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+}
