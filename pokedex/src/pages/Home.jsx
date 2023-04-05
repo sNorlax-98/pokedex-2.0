@@ -1,11 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import Header from '../components/Header';
 import './Pages.css'
 import axios from 'axios';
-
+import searchTermContext from '../context/searchTermContext';
 const Home = () => {
-    const [searchTerm, setSearchTerm] = React.useState('snorlax');
     const [selectedPokemon, setSelectedPokemon] = React.useState(null);
+    let {searchTerm, setSearchTerm} = useContext(searchTermContext);
     const handleSearch = () => {
         if (!searchTerm) {
           return;

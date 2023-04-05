@@ -5,10 +5,14 @@ import Forms from './pages/Forms';
 import Moves from './pages/Moves';
 import Stats from './pages/Stats';
 import Compare from './pages/Compare';
-// import {searchTermContext} from "./pages/Home"
+import React from 'react';
+import SearchTermState from './context/SearchTermState';
+
+
+
 function App() {
   return (
-    // <searchTermContext.Provider value={searchTermContext}>
+    <SearchTermState>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>} />
@@ -18,7 +22,7 @@ function App() {
       <Route path="/compare" element={<Compare/>} />
     </Routes>
     </BrowserRouter>
-    // </searchTermContext.Provider>
+    </SearchTermState>
   );
 }
 
