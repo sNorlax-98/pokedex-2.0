@@ -5,6 +5,7 @@ import './Pages.css'
 import axios from 'axios';
 import searchTermContext from '../context/searchTermContext';
 const Home = () => {
+    const {comparePokemon,setComparePokemon} = useContext(searchTermContext);
     const [selectedPokemon, setSelectedPokemon] = React.useState(null);
     let {searchTerm, setSearchTerm} = useContext(searchTermContext);
     const handleSearch = () => {
@@ -22,6 +23,13 @@ const Home = () => {
           });
           
       }
+      const handleCompare = () => {
+        if (!searchTerm) {
+          return;
+        }
+        setComparePokemon(selectedPokemon)
+        console.log(comparePokemon);
+      }
       
     return (
         <div>
@@ -34,6 +42,7 @@ const Home = () => {
             <div className='card'>
           <img className='poke-img img-front' src={selectedPokemon.sprites.front_shiny} alt={selectedPokemon.name} />
           <img className='poke-img img-back' src={selectedPokemon.sprites.front_shiny} alt={selectedPokemon.name} />
+          <button onClick={handleCompare} >add to compare </button>
         </div> :
         null
       }

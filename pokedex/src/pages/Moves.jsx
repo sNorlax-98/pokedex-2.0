@@ -29,7 +29,7 @@ const Moves = () => {
             <Header/>
             <h1>Moves</h1>
             <ul>
-                {selectedPokemon && selectedPokemon.moves.map(e=>{return <li>{e.move.name}</li>})}
+                {selectedPokemon && selectedPokemon.moves.map(e=>{return <li key={e.move.name} >{e.move.name}</li>})}
             </ul>
             
         </div>
