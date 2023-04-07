@@ -5,7 +5,7 @@ import './Pages.css'
 import axios from 'axios';
 import searchTermContext from '../context/searchTermContext';
 const Home = () => {
-    const {comparePokemon,setComparePokemon} = useContext(searchTermContext);
+    const {comparePokemon,setComparePokemon,clearComparePokemon} = useContext(searchTermContext);
     const [selectedPokemon, setSelectedPokemon] = React.useState(null);
     let {searchTerm, setSearchTerm} = useContext(searchTermContext);
     const handleSearch = () => {
@@ -24,12 +24,14 @@ const Home = () => {
           
       }
       const handleCompare = () => {
-        if (!searchTerm) {
+        if (!searchTerm || !selectedPokemon) {
           return;
         }
-        setComparePokemon(selectedPokemon)
+        setComparePokemon(prevComparePokemon => [...prevComparePokemon, selectedPokemon]);
         console.log(comparePokemon);
+        console.log(comparePokemon.length);
       }
+      
       
     return (
         <div>
@@ -43,9 +45,17 @@ const Home = () => {
           <img className='poke-img img-front' src={selectedPokemon.sprites.front_shiny} alt={selectedPokemon.name} />
           <img className='poke-img img-back' src={selectedPokemon.sprites.front_shiny} alt={selectedPokemon.name} />
           <button onClick={handleCompare} >add to compare </button>
+          <button onClick={clearComparePokemon} > clear compare list </button>
         </div> :
         null
       }
+      <div>
+      <div>
+            <ul>Name: 
+          {comparePokemon && comparePokemon.map(e=>{return <li key={e.name} >{e.name}</li>})}
+            </ul>
+            </div>
+      </div>
         </div>
     );
 }

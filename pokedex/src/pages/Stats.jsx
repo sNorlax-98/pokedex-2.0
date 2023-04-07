@@ -80,11 +80,12 @@ const Stats = () => {
         <div>
             <h2>{selectedPokemon.name}: Stats </h2>
             <img src={selectedPokemon.sprites.front_default} alt={selectedPokemon.name} />
+            <Chart data={pokeData} />
+
         </div>
       ) : (
         <p>No pokemon found.</p>
       )}
-      <Chart data={pokeData} />
     </div>
   );
 };

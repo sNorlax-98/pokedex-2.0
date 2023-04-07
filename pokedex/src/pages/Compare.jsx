@@ -1,69 +1,115 @@
-import React, { useContext, useState, useEffect } from 'react';
-import Header from '../components/Header';
-import searchTermContext from '../context/searchTermContext';
-import axios from 'axios';
-
+import React, { useContext, useState, useEffect } from "react";
+import Header from "../components/Header";
+import searchTermContext from "../context/searchTermContext";
+import axios from "axios";
+import Chart from "../components/Chart";
 const Compare = () => {
-  const { searchTerm, setSearchTerm, comparePokemon, setComparePokemon } = useContext(searchTermContext);
+  const { searchTerm } = useContext(searchTermContext);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
-
-  const handleSearch = () => {
-    if (!searchTerm) {
-      return;
-    }
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`)
-      .then(response => {
-        setSelectedPokemon(response.data);
-        console.log(response.data)
-      })
-      .catch(error => {
-        console.log(error);
-        setSelectedPokemon(null);
-      });
-  }
+  const { comparePokemon, setComparePokemon } = useContext(searchTermContext);
+  const [pokeData, setPokeData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: "HP",
+        data: [],
+      },
+      {
+        label: "Attack",
+        data: [],
+      },
+      {
+        label: "Defense",
+        data: [],
+      },
+      {
+        label: "Special Attack",
+        data: [],
+      },
+      {
+        label: "Special Defense",
+        data: [],
+      },
+      {
+        label: "Speed",
+        data: [],
+      },
+    ],
+  });
 
   useEffect(() => {
-    const handleCompareSearch = () => {
-      if (!comparePokemon) {
+    const handleStatsSearch = () => {
+      if (!searchTerm) {
         return;
       }
-      const pokemonName = comparePokemon.name ? comparePokemon.name.toLowerCase() : "";
-      axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-        .then(response => {
-          setComparePokemon(response.data);
-          console.log(response.data)
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`)
+        .then((response) => {
+          setSelectedPokemon(response.data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
-          setComparePokemon(null);
+          setSelectedPokemon(null);
         });
+    };
 
+    handleStatsSearch();
+  }, [searchTerm]);
+
+  useEffect(() => {
+    if (selectedPokemon) {
+      const newlabels = comparePokemon.map((d) =>
+        d.stats.map((stat) => stat.stat.name)
+      );
+      const newData = comparePokemon.map((d) =>
+        d.stats.map((stat) => stat.base_stat)
+      );
+      console.log(newlabels);
+      console.log(newData);
+      setPokeData({
+        labels: newlabels[0],
+        datasets: [
+          {
+            label: comparePokemon[0].name,
+            data: newData[0],
+          },
+          {
+            label: comparePokemon[1].name,
+            data: newData[1],
+          },
+        ],
+      });
     }
-    handleCompareSearch();
-  }, [comparePokemon]);
+  }, [selectedPokemon, comparePokemon]);
 
   return (
     <div>
       <Header />
-      <h1>Compare</h1>
-      <input className='input' type="text" value={searchTerm} onChange={e => { setSearchTerm(e.target.value) }} />
-      <button className='btn' onClick={handleSearch}>Search</button>
-      {selectedPokemon ?
-        <div className='card'>
-          <img className='poke-img img-front' src={selectedPokemon.sprites.front_shiny} alt={selectedPokemon.name} />
-          <img className='poke-img img-back' src={selectedPokemon.sprites.front_shiny} alt={selectedPokemon.name} />
-        </div> :
-        null
-      }
-        {comparePokemon ?
-        <div className='card'>
-            <img className='poke-img img-front' src={comparePokemon.sprites.front_shiny} alt={comparePokemon.name} />
-            <img className='poke-img img-back' src={comparePokemon.sprites.front_shiny} alt={comparePokemon.name} />
-        </div> :
-        null
-        }
+      {selectedPokemon ? (
+        <div>
+          <h2>{selectedPokemon.name}: Stats </h2>
+          <img
+            src={selectedPokemon.sprites.front_default}
+            alt={selectedPokemon.name}
+          />
+          <Chart data={pokeData} />
+        </div>
+      ) : (
+        <p>No pokemon found.</p>
+      )}
+      {comparePokemon.length > 0 ? (
+        <div>
+          <h2>Compare Pokemon</h2>
+          <img
+            src={comparePokemon[0].sprites.front_default}
+            alt={comparePokemon[0].name}
+          />
+        </div>
+      ) : (
+        <>nothing to compare</>
+      )}
     </div>
   );
-}
+};
 
 export default Compare;
