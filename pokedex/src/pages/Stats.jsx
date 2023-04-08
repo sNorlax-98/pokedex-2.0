@@ -8,6 +8,10 @@ import Chart from '../components/Chart';
 const Stats = () => {
   const { searchTerm } = useContext(searchTermContext);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [show, setShow] = useState(false);
+  function handleShow() {
+    setShow(!show);
+  }
   const [pokeData, setPokeData] = useState({
     labels: [],
     datasets: [
@@ -55,7 +59,7 @@ const Stats = () => {
     };
 
     handleStatsSearch();
-  }, [searchTerm]);
+  }, [selectedPokemon]);
 
   useEffect(() => {
     if (selectedPokemon) {
@@ -75,17 +79,16 @@ const Stats = () => {
 
   return (
     <div>
-      <Header />
-      {selectedPokemon ? (
+      { show && selectedPokemon ? (
         <div>
-            <h2>{selectedPokemon.name}: Stats </h2>
-            <img src={selectedPokemon.sprites.front_default} alt={selectedPokemon.name} />
             <Chart data={pokeData} />
-
+            
         </div>
       ) : (
-        <p>No pokemon found.</p>
+        <div>
+        </div>
       )}
+      <button className='stats-btn' onClick={()=>handleShow()}>{ show?"hide stats":"show stats"}</button>
     </div>
   );
 };

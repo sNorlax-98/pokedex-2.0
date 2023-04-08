@@ -31,12 +31,111 @@
 .card{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 2rem;
     width: 100%;
     height: 100%;
 }
 .poke-img{
-    width: 200px;
+    width: 400px;
 
+}
+.stats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+.compare-btn{
+    width: 10rem;
+    height: 3rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding:  10px;
+    font-size: 1.2rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.clear-btn{
+    width: 10rem;
+    height: 3rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding:  10px;
+    font-size: 1.2rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.moves{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+.moves li{
+    list-style: none;
+}
+.moves h1{
+    margin-left: 2.5rem;
+}
+.forms{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+.forms-btn{
+    width: 8rem;
+    height: 3rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding:  10px;
+    font-size: 1.2rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-bottom: 10rem;
+}
+.moves-btn{
+    width: 8rem;
+    height: 3rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding:  10px;
+    font-size: 1.2rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.stats-btn{
+    width: 8rem;
+    height: 3rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding:  10px;
+    font-size: 1.2rem;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.fav-btn{
+    width: 30px;
 }

@@ -3,38 +3,14 @@ import Header from "../components/Header";
 import searchTermContext from "../context/searchTermContext";
 import axios from "axios";
 import Chart from "../components/Chart";
+
 const Compare = () => {
   const { searchTerm } = useContext(searchTermContext);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const { comparePokemon, setComparePokemon } = useContext(searchTermContext);
   const [pokeData, setPokeData] = useState({
     labels: [],
-    datasets: [
-      {
-        label: "HP",
-        data: [],
-      },
-      {
-        label: "Attack",
-        data: [],
-      },
-      {
-        label: "Defense",
-        data: [],
-      },
-      {
-        label: "Special Attack",
-        data: [],
-      },
-      {
-        label: "Special Defense",
-        data: [],
-      },
-      {
-        label: "Speed",
-        data: [],
-      },
-    ],
+    datasets: []
   });
 
   useEffect(() => {
@@ -64,20 +40,16 @@ const Compare = () => {
       const newData = comparePokemon.map((d) =>
         d.stats.map((stat) => stat.base_stat)
       );
-      console.log(newlabels);
-      console.log(newData);
+      const newDatasets = comparePokemon.map((pokemon, index) => {
+        return {
+          label: pokemon.name,
+          data: newData[index]
+        };
+      });
+
       setPokeData({
         labels: newlabels[0],
-        datasets: [
-          {
-            label: comparePokemon[0].name,
-            data: newData[0],
-          },
-          {
-            label: comparePokemon[1].name,
-            data: newData[1],
-          },
-        ],
+        datasets: newDatasets
       });
     }
   }, [selectedPokemon, comparePokemon]);
@@ -85,25 +57,18 @@ const Compare = () => {
   return (
     <div>
       <Header />
-      {selectedPokemon ? (
-        <div>
-          <h2>{selectedPokemon.name}: Stats </h2>
-          <img
-            src={selectedPokemon.sprites.front_default}
-            alt={selectedPokemon.name}
-          />
-          <Chart data={pokeData} />
-        </div>
-      ) : (
-        <p>No pokemon found.</p>
-      )}
       {comparePokemon.length > 0 ? (
         <div>
           <h2>Compare Pokemon</h2>
-          <img
-            src={comparePokemon[0].sprites.front_default}
-            alt={comparePokemon[0].name}
-          />
+          {comparePokemon.map((pokemon, index) => (
+            <div key={index}>
+              <img
+                src={pokemon.sprites.front_default}
+                alt={pokemon.name}
+              />
+            </div>
+          ))}
+          <Chart data={pokeData}/>
         </div>
       ) : (
         <>nothing to compare</>

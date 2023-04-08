@@ -1,9 +1,7 @@
 import './App.css';
 import {BrowserRouter,Route,Routes} from "react-router-dom"
 import Home from "./pages/Home"
-import Forms from './pages/Forms';
-import Moves from './pages/Moves';
-import Stats from './pages/Stats';
+import Favourite from './pages/Favourite';
 import Compare from './pages/Compare';
 import React from 'react';
 import SearchTermState from './context/SearchTermState';
@@ -16,10 +14,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="/forms" element={<Forms/>} />
-      <Route path="/moves" element={<Moves/>} />
-      <Route path="/stats" element={<Stats/>} />
       <Route path="/compare" element={<Compare/>} />
+      <Route path="/favourite" element={<Favourite/>} />
     </Routes>
     </BrowserRouter>
     </SearchTermState>

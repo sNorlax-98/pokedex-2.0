@@ -6,7 +6,10 @@ import searchTermContext from '../context/searchTermContext';
 const Forms = () => {
     const { searchTerm } = useContext(searchTermContext);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
-
+    const [show, setShow] = useState(false);
+    function handleShow() {
+        setShow(!show);
+    }
     useEffect(() => {
         const handleFormsSearch = () => {
             if (!searchTerm) {
@@ -28,13 +31,13 @@ const Forms = () => {
 
     return (
         <div>
-            <Header />
-            <h1>Forms</h1>
-            <ul>
+            { show && <h1>Forms</h1>}
+            {show &&<ul>
                 {selectedPokemon && selectedPokemon.forms.map(e => (
                     <li key={e.name}>{e.name}</li>
                 ))}
-            </ul>
+            </ul>}
+            <button className='forms-btn' onClick={()=>handleShow()}> {show? "Hide forms":"Show forms"} </button>
         </div>
     );
 }
