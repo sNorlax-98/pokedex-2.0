@@ -10,11 +10,16 @@ import Forms from "../pages/Forms";
 import favimg from "../assets/favimg.png";
 import notfav from "../assets/notfav.png";
 const Home = () => {
-  const { comparePokemon, setComparePokemon, clearComparePokemon,addFavoritePokemon,removeFavoritePokemon } =
-    useContext(searchTermContext);
+  const {
+    comparePokemon,
+    setComparePokemon,
+    clearComparePokemon,
+    addFavoritePokemon,
+    removeFavoritePokemon,
+    show,
+    setShow,
+  } = useContext(searchTermContext);
   const [selectedPokemon, setSelectedPokemon] = React.useState(null);
-  const [show , setShow] = React.useState(false)
-  const [fav, setFav] = React.useState(false)
   let { searchTerm, setSearchTerm } = useContext(searchTermContext);
   const handleSearch = () => {
     if (!searchTerm) {
@@ -31,11 +36,7 @@ const Home = () => {
         setSelectedPokemon(null);
       });
   };
-  function toogleFav(){
-    setFav(!fav)
-    
 
-  }
   const handleCompare = () => {
     if (!searchTerm || !selectedPokemon) {
       return;
@@ -47,7 +48,6 @@ const Home = () => {
     console.log(comparePokemon);
     console.log(comparePokemon.length);
   };
-
   return (
     <div>
       <Header />
@@ -67,28 +67,57 @@ const Home = () => {
       {selectedPokemon ? (
         <div className="card">
           <img
-            className="poke-img img-front"
+            className="poke-img"
             src={selectedPokemon.sprites.other.home.front_default}
             alt={selectedPokemon.name}
           />
-          {show ? <button onClick={()=>{setFav(!fav)
-    removeFavoritePokemon(selectedPokemon,selectedPokemon.id)}} >{fav ? <img className="fav-btn" src={favimg} />:<img className="fav-btn" src={notfav}/>}</button>
-          : <button onClick={()=>{setFav(!fav)
-            addFavoritePokemon(selectedPokemon,selectedPokemon.id)}} >{fav ? <img className="fav-btn" src={favimg} />:<img className="fav-btn" src={notfav}/>}</button>}
-          <div className="stats"><Stats/></div>
-          <div className="moves">  <Moves/></div>
-          <div className="forms"> <Forms/> </div>
-          <button className="compare-btn" onClick={handleCompare}>Compare</button>
-          <button className="clear-btn" onClick={clearComparePokemon}> clear </button>
+          {show ? (
+            <button
+              className="fav-btn"
+              onClick={() => {
+                setShow(false);
+                removeFavoritePokemon(selectedPokemon, selectedPokemon.id);
+              }}
+            >
+              <img className="fav-btn-img" src={favimg} />
+            </button>
+          ) : (
+            <button
+              className="fav-btn"
+              onClick={() => {
+                setShow(true);
+                addFavoritePokemon(selectedPokemon, selectedPokemon.id);
+              }}
+            >
+              <img className="fav-btn-img" src={notfav} />
+            </button>
+          )}
+          <div className="stats">
+            <Stats />
+          </div>
+          <div className="moves">
+            <Moves />
+          </div>
+          <div className="forms">
+            <Forms />
+          </div>
+          <button className="compare-btn" onClick={handleCompare}>
+            Compare
+          </button>
+          <button className="clear-btn" onClick={clearComparePokemon}>
+            clear
+          </button>
           <div>
-            <div className='compare-list' >
-              {comparePokemon.length>0 && <ul>
-                Name:
-                {comparePokemon &&
-                  comparePokemon.map((e) => {
-                    return <li key={e.id}>{e.name}</li>;
-                  })}
-              </ul>}
+            <div className="compare-list">
+              {comparePokemon.length > 0 && (
+                <ul>
+                  Name:
+                  {comparePokemon &&
+                    comparePokemon.map((e) => {
+                      return <li key={e.id}>{e.name}</li>;
+                    })}
+                </ul>
+              )}
             </div>
           </div>
         </div>
