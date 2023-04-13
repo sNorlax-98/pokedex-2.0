@@ -31,19 +31,18 @@ const Moves = () => {
     <div className={show ? "moves" : "movesoff"}>
       {show && <h1 className="moves-h1">Moves</h1>}
       {show && (
-        <>
+        <div className="mo">
           {selectedPokemon &&
             selectedPokemon.moves.map((e) => {
               return (
-                <p className="moves-p" key={e.move.name}>
-                  {capitaliseFirstLetter(e.move.name) + " "},
-                </p>
+                <h6 className="moves-box" key={e.move.name}>
+                  {capitaliseFirstLetter(e.move.name) + " "}
+                </h6>
               );
             })}
-        </>
+        </div>
       )}
       <button className="btn" onClick={() => handleShow()}>
-        {" "}
         {show ? "Hide moves" : "Show Moves"}
       </button>
     </div>

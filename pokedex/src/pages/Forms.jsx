@@ -5,7 +5,7 @@ import searchTermContext from "../context/searchTermContext";
 import "./Pages.css";
 
 const Forms = () => {
-  const { searchTerm } = useContext(searchTermContext);
+  const { searchTerm, capitaliseFirstLetter } = useContext(searchTermContext);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [show, setShow] = useState(false);
   function handleShow() {
@@ -35,10 +35,12 @@ const Forms = () => {
     <div className={show ? "forms" : "formsoff"}>
       {show && <h1 className="forms-h1">Forms</h1>}
       {show && (
-        <ul>
+        <div className="so">
           {selectedPokemon &&
-            selectedPokemon.forms.map((e) => <li key={e.name}>{e.name}</li>)}
-        </ul>
+            selectedPokemon.forms.map((e) => (
+              <h6 key={e.name}>{capitaliseFirstLetter(e.name)}</h6>
+            ))}
+        </div>
       )}
       <button className="btn forms-btn" onClick={() => handleShow()}>
         {show ? "Hide forms" : "Show forms"}{" "}

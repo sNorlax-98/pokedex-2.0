@@ -1,43 +1,33 @@
-.poke-logo{
-    display: none;
-    width: 14rem;
-    border: 1px solid #000;
-    border-radius: 20%;
-}
-.header{
+.header-div{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #000;
-    background-image: url('../assets/bannerjpg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 24rem;
-    
-}
-.links{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 20rem;
-    font-size: 1.5rem;
-}
-.logo-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-a{
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
+    background: rgb(237,242,211);
+background: linear-gradient(90deg, rgba(237,242,211,1) 16%, rgba(2,0,36,1) 37%, rgba(0,212,255,1) 84%);
 }
 
+.logo{
+    width: 25%;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: none;
+    
+}
+.header-links{
+    display: flex;
+    width: 65%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem;
+}
+a:link{
+    text-decoration: none;
+    color: green;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem;
+}
 a:hover{
     color: yellow;
-    font-size: 2rem;
+    text-decoration: none;
 }

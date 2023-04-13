@@ -51,63 +51,66 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div className="search">
+      <div className="home">
         <input
-          className=""
+          className="input-field"
           type="text"
           value={searchTerm}
+          placeholder="Search"
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
         />
-        <button className="" onClick={handleSearch}>
+        <button className="search-btn" onClick={handleSearch}>
           Search
         </button>
       </div>
       {selectedPokemon ? (
-        <div className="card">
-          <div className="av-fav">
+        <div className="card-div">
+          <div className="img-div">
             <img
-              className="main-av"
+              className=""
               src={selectedPokemon.sprites.other.home.front_default}
               alt={selectedPokemon.name}
             />
             {show ? (
               <button
-                className="btn-fav"
+                className=""
                 onClick={() => {
                   setShow(false);
                   removeFavoritePokemon(selectedPokemon, selectedPokemon.id);
                 }}
               >
-                <img className="fav-img" src={favimg} />
+                <img className="tooglebtn-img" src={favimg} />
               </button>
             ) : (
               <button
-                className="not-btn-fav"
+                className=""
                 onClick={() => {
                   setShow(true);
                   addFavoritePokemon(selectedPokemon, selectedPokemon.id);
                 }}
               >
-                <img className="not-fav-img" src={notfav} />
+                <img className="tooglebtn-img" src={notfav} />
               </button>
             )}
           </div>
           <Stats />
           <Moves />
           <Forms />
-          <button className="btn" onClick={handleCompare}>
-            Compare
-          </button>
-          <button className="btn" onClick={clearComparePokemon}>
-            clear
-          </button>
+          <div className="comparison-control">
+            <button className="compare-btn btn" onClick={handleCompare}>
+              Compare
+            </button>
+            <button className="clear-btn btn" onClick={clearComparePokemon}>
+              clear
+            </button>
+          </div>
           <div>
-            <div className="moves">
+            <div className="compare-div">
               {comparePokemon.length > 0 && (
-                <ul className="moves-list">
-                  Name:
+                <ul className="">
+                  Comparison list:
                   {comparePokemon &&
                     comparePokemon.map((e) => {
                       return <li key={e.id}>{e.name}</li>;
