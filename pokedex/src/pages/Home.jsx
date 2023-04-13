@@ -53,64 +53,60 @@ const Home = () => {
       <Header />
       <div className="search">
         <input
-          className="input"
+          className=""
           type="text"
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
         />
-        <button className="btn" onClick={handleSearch}>
+        <button className="" onClick={handleSearch}>
           Search
         </button>
       </div>
       {selectedPokemon ? (
         <div className="card">
-          <img
-            className="poke-img"
-            src={selectedPokemon.sprites.other.home.front_default}
-            alt={selectedPokemon.name}
-          />
-          {show ? (
-            <button
-              className="fav-btn"
-              onClick={() => {
-                setShow(false);
-                removeFavoritePokemon(selectedPokemon, selectedPokemon.id);
-              }}
-            >
-              <img className="fav-btn-img" src={favimg} />
-            </button>
-          ) : (
-            <button
-              className="fav-btn"
-              onClick={() => {
-                setShow(true);
-                addFavoritePokemon(selectedPokemon, selectedPokemon.id);
-              }}
-            >
-              <img className="fav-btn-img" src={notfav} />
-            </button>
-          )}
-          <div className="stats">
-            <Stats />
+          <div className="av-fav">
+            <img
+              className="main-av"
+              src={selectedPokemon.sprites.other.home.front_default}
+              alt={selectedPokemon.name}
+            />
+            {show ? (
+              <button
+                className="btn-fav"
+                onClick={() => {
+                  setShow(false);
+                  removeFavoritePokemon(selectedPokemon, selectedPokemon.id);
+                }}
+              >
+                <img className="fav-img" src={favimg} />
+              </button>
+            ) : (
+              <button
+                className="not-btn-fav"
+                onClick={() => {
+                  setShow(true);
+                  addFavoritePokemon(selectedPokemon, selectedPokemon.id);
+                }}
+              >
+                <img className="not-fav-img" src={notfav} />
+              </button>
+            )}
           </div>
-          <div className="moves">
-            <Moves />
-          </div>
-          <div className="forms">
-            <Forms />
-          </div>
-          <button className="compare-btn" onClick={handleCompare}>
+          <Stats />
+          <Moves />
+          <Forms />
+          <button className="btn" onClick={handleCompare}>
             Compare
           </button>
-          <button className="clear-btn" onClick={clearComparePokemon}>
+          <button className="btn" onClick={clearComparePokemon}>
             clear
           </button>
           <div>
-            <div className="compare-list">
+            <div className="moves">
               {comparePokemon.length > 0 && (
-                <ul>
+                <ul className="moves-list">
                   Name:
                   {comparePokemon &&
                     comparePokemon.map((e) => {

@@ -27,6 +27,9 @@ const SearchState = (props) => {
     console.log(favPokemon);
   }
 
+  function capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   return (
     <searchTermContext.Provider
       value={{
@@ -41,6 +44,7 @@ const SearchState = (props) => {
         removeFavoritePokemon,
         show,
         setShow,
+        capitaliseFirstLetter,
       }}
     >
       {props.children}

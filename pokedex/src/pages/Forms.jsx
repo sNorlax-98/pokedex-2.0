@@ -32,16 +32,15 @@ const Forms = () => {
   }, [searchTerm]);
 
   return (
-    <div>
-      {show && <h1>Forms</h1>}
+    <div className={show ? "forms" : "formsoff"}>
+      {show && <h1 className="forms-h1">Forms</h1>}
       {show && (
         <ul>
           {selectedPokemon &&
             selectedPokemon.forms.map((e) => <li key={e.name}>{e.name}</li>)}
         </ul>
       )}
-      <button className="forms-btn" onClick={() => handleShow()}>
-        {" "}
+      <button className="btn forms-btn" onClick={() => handleShow()}>
         {show ? "Hide forms" : "Show forms"}{" "}
       </button>
     </div>
