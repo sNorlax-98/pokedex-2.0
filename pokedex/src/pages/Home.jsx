@@ -69,7 +69,7 @@ const Home = () => {
         <div className="card-div">
           <div className="img-div">
             <img
-              className=""
+              className="poke-img"
               src={selectedPokemon.sprites.other.home.front_default}
               alt={selectedPokemon.name}
             />

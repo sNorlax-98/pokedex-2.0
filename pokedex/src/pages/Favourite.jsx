@@ -31,6 +31,7 @@ const Favourite = () => {
                   >
                     <h1>{pokemon.name}</h1>
                     <img
+                      className="poke-img"
                       src={pokemon.sprites.other.home.front_default}
                       alt="poke-img"
                     />
