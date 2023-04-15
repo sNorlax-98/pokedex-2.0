@@ -9,22 +9,23 @@ const SearchState = (props) => {
 
   function clearComparePokemon() {
     setComparePokemon([]);
-    console.log(comparePokemon);
   }
 
   function addFavoritePokemon(pokemon) {
-    setFavPokemon((prevFavPokemon) => [...prevFavPokemon, pokemon]);
-    console.log(favPokemon);
-  }
-  function removeFavoritePokemon(id) {
     setFavPokemon((prevFavPokemon) => {
-      const newFavPokemon = prevFavPokemon.filter(
-        (pokemon) => pokemon.id === id
-      );
-      console.log(newFavPokemon);
+      if (prevFavPokemon.some((p) => p.id === pokemon.id)) {
+        return prevFavPokemon;
+      } else {
+        return [...prevFavPokemon, pokemon];
+      }
+    });
+  }
+
+  function removeFavoritePokemon(pokemon) {
+    setFavPokemon((prevFavPokemon) => {
+      const newFavPokemon = prevFavPokemon.filter((d) => d.id !== pokemon.id);
       return newFavPokemon;
     });
-    console.log(favPokemon);
   }
 
   function capitaliseFirstLetter(string) {

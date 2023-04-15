@@ -53,7 +53,7 @@ const Favourite = () => {
                     ) : (
                       <button
                         onClick={() => setShowDetails(!showdDetails)}
-                        className="btn "
+                        className="btn"
                       >
                         click for details
                       </button>

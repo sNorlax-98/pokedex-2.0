@@ -18,18 +18,16 @@ const Moves = () => {
         .get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`)
         .then((response) => {
           setSelectedPokemon(response.data);
-          console.log(response.data);
         })
         .catch((error) => {
-          console.log(error);
           setSelectedPokemon(null);
         });
     };
     handleMovesSearch();
   }, []);
   return (
-    <div className={show ? "moves" : "movesoff"}>
-      <div className="accordian-off moves_off" onClick={() => handleShow()}>
+    <div className={show ? "on" : "off"}>
+      <div className="accordian-off" onClick={() => handleShow()}>
         {show ? (
           <>
             <span>moves </span>

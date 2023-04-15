@@ -10,7 +10,7 @@ const Compare = () => {
   const { comparePokemon, setComparePokemon } = useContext(searchTermContext);
   const [pokeData, setPokeData] = useState({
     labels: [],
-    datasets: []
+    datasets: [],
   });
 
   useEffect(() => {
@@ -24,7 +24,6 @@ const Compare = () => {
           setSelectedPokemon(response.data);
         })
         .catch((error) => {
-          console.log(error);
           setSelectedPokemon(null);
         });
     };
@@ -43,13 +42,13 @@ const Compare = () => {
       const newDatasets = comparePokemon.map((pokemon, index) => {
         return {
           label: pokemon.name,
-          data: newData[index]
+          data: newData[index],
         };
       });
 
       setPokeData({
         labels: newlabels[0],
-        datasets: newDatasets
+        datasets: newDatasets,
       });
     }
   }, [selectedPokemon, comparePokemon]);
@@ -62,13 +61,10 @@ const Compare = () => {
           <h2>Compare Pokemon</h2>
           {comparePokemon.map((pokemon, index) => (
             <div key={index}>
-              <img
-                src={pokemon.sprites.front_default}
-                alt={pokemon.name}
-              />
+              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             </div>
           ))}
-          <Chart data={pokeData}/>
+          <Chart data={pokeData} />
         </div>
       ) : (
         <>nothing to compare</>

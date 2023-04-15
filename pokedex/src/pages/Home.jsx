@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Header from "../components/Header";
 import "./Pages.css";
 import axios from "axios";
@@ -18,6 +18,7 @@ const Home = () => {
     removeFavoritePokemon,
     show,
     setShow,
+    favPokemon,
   } = useContext(searchTermContext);
   const [selectedPokemon, setSelectedPokemon] = React.useState(null);
   let { searchTerm, setSearchTerm } = useContext(searchTermContext);
@@ -29,14 +30,18 @@ const Home = () => {
       .get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`)
       .then((response) => {
         setSelectedPokemon(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
-        console.log(error);
         setSelectedPokemon(null);
       });
   };
-
+  useEffect(() => {
+    if (favPokemon?.some((p) => p.id === selectedPokemon?.id)) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  }, [selectedPokemon, favPokemon]);
   const handleCompare = () => {
     if (!searchTerm || !selectedPokemon) {
       return;
@@ -45,8 +50,6 @@ const Home = () => {
       ...prevComparePokemon,
       selectedPokemon,
     ]);
-    console.log(comparePokemon);
-    console.log(comparePokemon.length);
   };
   return (
     <div>

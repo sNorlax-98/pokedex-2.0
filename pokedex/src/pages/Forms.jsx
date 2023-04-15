@@ -20,10 +20,8 @@ const Forms = () => {
         .get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`)
         .then((response) => {
           setSelectedPokemon(response.data);
-          console.log(response.data);
         })
         .catch((error) => {
-          console.log(error);
           setSelectedPokemon(null);
         });
     };
@@ -32,8 +30,8 @@ const Forms = () => {
   }, [searchTerm]);
 
   return (
-    <div className={show ? "forms" : "formsoff"}>
-      <div className="accordian-off moves_off" onClick={() => handleShow()}>
+    <div className={show ? "on" : "off"}>
+      <div className="accordian-off " onClick={() => handleShow()}>
         {show ? (
           <>
             <span>Forms </span>

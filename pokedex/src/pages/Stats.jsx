@@ -53,7 +53,6 @@ const Stats = () => {
           setSelectedPokemon(response.data);
         })
         .catch((error) => {
-          console.log(error);
           setSelectedPokemon(null);
         });
     };
@@ -92,8 +91,8 @@ const Stats = () => {
   }, [selectedPokemon]);
 
   return (
-    <div className={show ? "stats" : "statsoff"}>
-      <div className="accordian-off" onClick={() => handleShow()}>
+    <div className={show ? "on" : "off"}>
+      <div className="accordian-off " onClick={() => handleShow()}>
         {show ? (
           <>
             <span>Stats </span>
