@@ -4,7 +4,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 import "../pages/Pages.css";
 const Chart = ({ data }) => {
   return (
-    <div className="chart-div" style={{ width: 900 }}>
+    <div className="chart-div" style={{ width: 500 }}>
       <Bar data={data} />
     </div>
   );

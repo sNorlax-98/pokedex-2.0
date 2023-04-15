@@ -76,7 +76,7 @@ const Stats = () => {
         ],
         datasets: [
           {
-            label: "snorlax",
+            label: searchTerm,
             data: [
               newData[0],
               newData[1],
@@ -93,6 +93,18 @@ const Stats = () => {
 
   return (
     <div className={show ? "stats" : "statsoff"}>
+      <div className="accordian-off" onClick={() => handleShow()}>
+        {show ? (
+          <>
+            <span>Stats </span>
+            <span>-</span>
+          </>
+        ) : (
+          <>
+            <span>Stats </span> <span>+</span>
+          </>
+        )}
+      </div>
       {show && selectedPokemon ? (
         <div>
           <Chart data={pokeData} />
@@ -100,9 +112,6 @@ const Stats = () => {
       ) : (
         <div></div>
       )}
-      <button className="btn stats-btn" onClick={() => handleShow()}>
-        {show ? "hide stats" : "show stats"}
-      </button>
     </div>
   );
 };

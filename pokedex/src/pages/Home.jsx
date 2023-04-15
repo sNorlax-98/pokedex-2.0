@@ -95,18 +95,20 @@ const Home = () => {
               </button>
             )}
           </div>
-          <Stats />
-          <Moves />
-          <Forms />
-          <div className="comparison-control">
-            <button className="compare-btn btn" onClick={handleCompare}>
-              Compare
-            </button>
-            <button className="clear-btn btn" onClick={clearComparePokemon}>
-              clear
-            </button>
+          <div className="custom-div">
+            <Stats />
+            <Moves />
+            <Forms />
           </div>
-          <div>
+          <div className="comparison-div">
+            <div className="comparison-control">
+              <button className="compare-btn btn" onClick={handleCompare}>
+                Compare
+              </button>
+              <button className="clear-btn btn" onClick={clearComparePokemon}>
+                clear
+              </button>
+            </div>
             <div className="compare-div">
               {comparePokemon.length > 0 && (
                 <ul className="">

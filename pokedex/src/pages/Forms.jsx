@@ -33,6 +33,18 @@ const Forms = () => {
 
   return (
     <div className={show ? "forms" : "formsoff"}>
+      <div className="accordian-off moves_off" onClick={() => handleShow()}>
+        {show ? (
+          <>
+            <span>Forms </span>
+            <span>-</span>
+          </>
+        ) : (
+          <>
+            <span>Forms </span> <span>+</span>
+          </>
+        )}
+      </div>
       {show && <h1 className="forms-h1">Forms</h1>}
       {show && (
         <div className="so">
@@ -42,9 +54,6 @@ const Forms = () => {
             ))}
         </div>
       )}
-      <button className="btn forms-btn" onClick={() => handleShow()}>
-        {show ? "Hide forms" : "Show forms"}{" "}
-      </button>
     </div>
   );
 };
