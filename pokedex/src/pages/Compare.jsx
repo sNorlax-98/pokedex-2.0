@@ -57,7 +57,7 @@ const Compare = () => {
     <div>
       <Header />
       {comparePokemon.length > 0 ? (
-        <div>
+        <div className="main-div">
           <h2>Compare Pokemon</h2>
           {comparePokemon.map((pokemon, index) => (
             <div key={index}>

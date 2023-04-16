@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import Header from "../components/Header";
 import axios from "axios";
 import searchTermContext from "../context/searchTermContext";
 import "./Pages.css";
+import open from "../assets/open.png";
+import close from "../assets/close.png";
 
 const Forms = () => {
   const { searchTerm, capitaliseFirstLetter } = useContext(searchTermContext);
@@ -35,11 +36,11 @@ const Forms = () => {
         {show ? (
           <>
             <span>Forms </span>
-            <span>-</span>
+            <img className="open-pokeball" src={close} />
           </>
         ) : (
           <>
-            <span>Forms </span> <span>+</span>
+            <span>Forms </span> <img className="open-pokeball" src={open} />
           </>
         )}
       </div>

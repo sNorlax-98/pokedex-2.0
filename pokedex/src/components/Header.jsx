@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import logo from "../assets/poke-logo.jpg";
+import logo from "../assets/pokeball.svg";
 const Header = () => {
   return (
     <div className="header-div">
-      <div className="header-left">
-        <img className="logo" src={logo} />
-      </div>
+      <img className="logo" src={logo} />
       <div className="header-links">
         <Link to="/">Search</Link>
         <Link to="/favourite">Favourites</Link>

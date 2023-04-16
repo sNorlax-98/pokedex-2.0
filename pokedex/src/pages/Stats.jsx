@@ -4,6 +4,8 @@ import { useContext, useState, useEffect } from "react";
 import searchTermContext from "../context/searchTermContext";
 import axios from "axios";
 import Chart from "../components/Chart";
+import open from "../assets/open.png";
+import close from "../assets/close.png";
 
 const Stats = () => {
   const { searchTerm } = useContext(searchTermContext);
@@ -96,11 +98,11 @@ const Stats = () => {
         {show ? (
           <>
             <span>Stats </span>
-            <span>-</span>
+            <img className="open-pokeball" src={close} />
           </>
         ) : (
           <>
-            <span>Stats </span> <span>+</span>
+            <span>Stats </span> <img className="open-pokeball" src={open} />
           </>
         )}
       </div>

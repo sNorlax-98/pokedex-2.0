@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
+    margin: 3rem;
+    padding: 2rem;
     
 }
 .input-field{
@@ -62,9 +63,12 @@
 }
 .compare-btn{
     width: fit-content;
+    margin: 1rem;
+
 }
 .clear-btn{
     width: fit-content;
+    margin: 1rem;
 }
 
 
@@ -179,6 +183,7 @@ body{
     font-size: xx-large;
     padding: 20px;
     border-radius: 10px;
+    border: 1px solid black;
 }
 .moves_off{
     margin-left: 2rem;
@@ -211,13 +216,17 @@ body{
     margin: 1rem;
 }
 .comparison-div{
-    margin-left: 2rem;
+    margin-left: 1rem;
+    padding: 2rem;
     position: absolute;
 }
 ul{
-    list-style: none;    
+    list-style: none;
+    margin-left: 1.5rem;    
 }
-
+li{
+    margin-left: 1rem;
+}
 .on{
     display: flex;
     align-items: center;
@@ -233,4 +242,18 @@ ul{
     margin: 1rem;
     width: 100%;
     
+}
+.poke-img{
+    width: 20rem;
+    height: 20rem;
+}
+.open-pokeball{
+    width: 4rem;
+}
+.main-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem;
 }

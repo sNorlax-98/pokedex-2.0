@@ -13,12 +13,22 @@ a:hover{
 }
 .header-div{
     display: flex;
-    background: whitesmoke;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    height: 10rem;
 }
 .logo{
-    width: 20%;
-    padding: 2rem;
+    width: 8rem;
+    padding: 1rem;
 }
-.header-links{
+/* .header-links{
     padding: 2rem;
+    margin-left: auto;
+    background-image: url(../assets/background.jpg);
+} */
+*{
+    background-image: url(../assets/background.jpg);
 }

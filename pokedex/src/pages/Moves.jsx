@@ -2,6 +2,8 @@ import React from "react";
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import searchTermContext from "../context/searchTermContext";
+import open from "../assets/open.png";
+import close from "../assets/close.png";
 const Moves = () => {
   const { searchTerm, capitaliseFirstLetter } = useContext(searchTermContext);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -31,11 +33,11 @@ const Moves = () => {
         {show ? (
           <>
             <span>moves </span>
-            <span>-</span>
+            <img className="open-pokeball" src={close} />
           </>
         ) : (
           <>
-            <span>Moves </span> <span>+</span>
+            <span>Moves </span> <img className="open-pokeball" src={open} />
           </>
         )}
       </div>
