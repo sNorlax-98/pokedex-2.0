@@ -54,16 +54,18 @@ const Compare = () => {
   }, [selectedPokemon, comparePokemon]);
 
   return (
-    <div>
+    <div className="main-div">
       <Header />
       {comparePokemon.length > 0 ? (
-        <div>
+        <div className="main2-div">
           <h2>Compare Pokemon</h2>
-          {comparePokemon.map((pokemon, index) => (
-            <div key={index}>
-              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-            </div>
-          ))}
+          <div className="image-div">
+            {comparePokemon.map((pokemon, index) => (
+              <div key={index}>
+                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              </div>
+            ))}
+          </div>
           <Chart data={pokeData} />
         </div>
       ) : (

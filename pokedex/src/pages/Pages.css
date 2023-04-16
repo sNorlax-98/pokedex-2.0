@@ -234,3 +234,12 @@ ul{
     width: 100%;
     
 }
+.main2-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image-div{
+    display: flex;
+}
