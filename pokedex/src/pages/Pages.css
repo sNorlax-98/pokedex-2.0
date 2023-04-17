@@ -39,7 +39,7 @@
     border: 0;
     cursor: pointer;
     font-weight: 600;
-    color: rgb(72, 76, 122);
+    color: rgb(14, 14, 15);
     font-size: 14px;
     height: 38px;
     padding: 8px 24px;
@@ -166,11 +166,8 @@ body{
     width: 2rem;        
 }
 
-.card-group{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+.A{
+    
     
 }
 .accordian-off{
@@ -188,26 +185,7 @@ body{
 .moves_off{
     margin-left: 2rem;
 }
-.favcard-expand{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10%;
-    border: 1px solid black;
-}
-.favcard-retend{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    margin: 1rem;
-    padding: 10px;
-    border: 1px solid black;
-}
+
 .comparison-control{
     margin: 1rem;
     
@@ -256,4 +234,26 @@ li{
     justify-content: center;
     flex-direction: column;
     margin: 1rem;
+}
+.card-group{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+    padding-left: 3rem;
+}
+.card {
+  display: grid;
+ grid-template-columns: 1fr 1fr ;
+  border: 1px solid #ccc;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.favcard-retend {
+  max-height: fit-content;
+  overflow: hidden;
+}
+
+.favcard-expand {   
 }

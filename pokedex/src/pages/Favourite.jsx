@@ -17,14 +17,14 @@ const Favourite = () => {
 
   return (
     <>
-      <div className="fav-tab">
-        <Header />
+      <Header />
+      <div className="card-group">
         {favPokemon.length > 0 &&
           favPokemon.map((pokemon) => {
             const { id, name, sprites } = pokemon;
             const isShowDetails = showDetails[id];
             return (
-              <div className="card-group" key={id}>
+              <div className="card" key={id}>
                 <div
                   className={
                     isShowDetails ? "favcard-expand" : "favcard-retend"
