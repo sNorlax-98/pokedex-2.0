@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## About the project
 
 This project is an E-commerce website, an online bookstore, the backend is made using Django, a Python web framework, with sqlite3 as the database. The frontend is done with HTML5 and styled with Bootstrap v5.1.
@@ -65,3 +66,6 @@ This project was created using Django web framework. To run the project
 3. install Django.
 4. cd into the e_commerce directory.
 5. run command `python3 manage.py runserver` to start the server.
+=======
+# pokedex-2.0
+>>>>>>> f291cea4985142e95990dbedb812bc9a0c98724c
