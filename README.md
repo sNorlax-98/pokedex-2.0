@@ -1,71 +1,52 @@
-<<<<<<< HEAD
+# pokedex-2.0
+
 ## About the project
 
-This project is an E-commerce website, an online bookstore, the backend is made using Django, a Python web framework, with sqlite3 as the database. The frontend is done with HTML5 and styled with Bootstrap v5.1.
+This project is an Directory for finding details for any Pokemons.
 
 ## A tour of the site
 
 1. #### Landing Page
 
-   ![Landing Page](./site_screenshots/landing_page.png)
+   ![Landing page](./SS-folder/home.PNG)
 
-2. #### Registration Page
-   Users can register here for a new account.
+2. #### Search Page
+   This the search Page
 
-![Registration Page](./site_screenshots/register_page.png)
+![Search Page](./SS-folder/search_pokemon.PNG)
 
-3. #### Login Page
+2. #### Stats
+   click on the stats panel to toogle Stats.
 
-   ![Login Page](./site_screenshots/login_page.png)
+![Stats Page](./SS-folder/stats.PNG)
 
-4. #### Product Page
-   This page shows the complete information about a single book with user reviews and also gives the logged in user the ability to either add the item to cart, buy it or leave a review of their own.
+6. #### Favourite Page
+   This is the page where Pokemons marked as favourite Show up .
 
-![Product Page](./site_screenshots/product_page.png)
+![Favourites page](./SS-folder/favourite.PNG)
 
-5. #### Filter Search
-   You can filter their search by category or search for the title of the book.
+7. #### Moves
 
-![Filtered Search](./site_screenshots/filtered_results.png)
+   toggle to see moves
+   ![Moves](./SS-folder/moves.PNG)
 
-6. #### Cart
-   This is a wishlist that users can add items to come back to later.
+8. #### Forms
 
-![Cart](./site_screenshots/cart.png)
+   toogle to see forms
+   ![Forms](./SS-folder/forms.PNG)
 
-7. #### Contact Form
-   Users can add new contact info using this form, users can have multiple addresses that they can later select from to choose where the product should be delivered.
-
-![Contact Form](./site_screenshots/contact_form.png)
-
-8. #### Manage Contact Info
-   Users can view their saved addresses and manage them.
-
-![Contact Info](./site_screenshots/contact_page.png)
-
-9. #### Buying Process
-
-   ![Buying Process](./site_screenshots/buy_page.png)
-
-10. #### Purchase History
-    ![Purchase History](./site_screenshots/purchase_history.png)
+9. #### Compare Page
+   this page shows and compare stats for pokemons added in the compare list
+   ![Compare](./SS-folder/compare.PNG)
 
 ## Tech stack used
 
-- Python v3.8.10
-- Django v3.2.5
-- Bootstrap v5.1
-- sqlite3
+    React.js
 
 ## How to Run?
 
-This project was created using Django web framework. To run the project
-
 1. clone the github repository.
-2. install Python3.
-3. install Django.
-4. cd into the e_commerce directory.
-5. run command `python3 manage.py runserver` to start the server.
-=======
-# pokedex-2.0
->>>>>>> f291cea4985142e95990dbedb812bc9a0c98724c
+2. install node.js.
+3. cd into Pokedex-2.0.
+4. run command `npm i` to install all the depedencies.
+5. run commmand `npm run dev` to start react app
