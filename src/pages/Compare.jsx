@@ -54,24 +54,29 @@ const Compare = () => {
   }, [selectedPokemon, comparePokemon]);
 
   return (
-    <div className="main-div">
+    <>
       <Header />
-      {comparePokemon.length > 0 ? (
-        <div className="main2-div">
-          <h2>Compare Pokemon</h2>
-          <div className="image-div">
-            {comparePokemon.map((pokemon, index) => (
-              <div key={index}>
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-              </div>
-            ))}
+      <div className="main-div">
+        {comparePokemon.length > 0 ? (
+          <div className="main2-div">
+            <h2 className="center-text">Compare Pokemon</h2>
+            <div className="compare-img-group">
+              {comparePokemon.map((pokemon, index) => (
+                <img
+                  key={index}
+                  className="compare-poke-img"
+                  src={pokemon.sprites.front_default}
+                  alt={pokemon.name}
+                />
+              ))}
+            </div>
+            <Chart data={pokeData} />
           </div>
-          <Chart data={pokeData} />
-        </div>
-      ) : (
-        <>nothing to compare</>
-      )}
-    </div>
+        ) : (
+          <>nothing to compare</>
+        )}
+      </div>
+    </>
   );
 };
 
