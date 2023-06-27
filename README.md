@@ -5,6 +5,7 @@
 This project is an Directory for finding details for any Pokemons.
 
 ## A tour of the site
+### Live demo of the website https://pokedex2-0.netlify.app/
 
 1. #### Landing Page
 
